@@ -1,3 +1,11 @@
+> [!IMPORTANT]  
+> 
+> This repository is forked from the [original](https://github.com/VaughnVernon/IDDD_Samples)
+> to allow for hands-on.
+> The changes are minimal, and the Java version remains the same as the original,
+> so some setup is still required, but the method is described in this README
+> and should not be difficult for developers with Java development experience.
+
 These are the sample Bounded Contexts from the book
 "Implementing Domain-Driven Design" by Vaughn Vernon:
 
@@ -63,21 +71,43 @@ Requires
 - MySQL Client + Server
 - RabbitMQ
 
+Setup JDK
+---------
+
+Download and install Java SE Development Kit from [Oracle archives page](https://www.oracle.com/java/technologies/javase/javase7-archive-downloads.html).
+
+Make sure `1.7.*` is available on your machine.
+
+```shell
+# for macOS example
+/usr/libexec/java_home -V
+```
+
+Set `JAVA_HOME` environment variable to use the old version Java on the current shell.
+
+```shell
+export JAVA_HOME=`/usr/libexec/java_home -v <OLD_JAVA_VERSION>`
+```
+
+Make sure the Java version has been changed.
+
+```shell
+java -version
+```
+
 Setup (with Docker)
 -------------------
 
 To make it easy to run the tests and it requirements,
-the `startContainers.sh` script is provided. Which
-will start a:
+run `docker compose up` and execute `setup_db.sh`
+to create required databases to the MySQL Server.
+
+`docker compose up` will start a:
 - MySQL Server container
 - RabbitMQ Server container
 - RabbitMQ Management container
 
-If the `mysql` command is available, which is the mysql client,
-also the required SQL scripts will be imported into the MySQL
-Server.
-
-If you use the `startContainers.sh` script, you don't need
+If you use the `docker compose up` command, you don't need
 MySQL Server and RabbitMQ installed locally. Instead,
 Docker needs to be installed as the script will start
 MySQL and RabbitMQ in Docker containers.
@@ -92,6 +122,7 @@ You can build the project by running:
 ```
 
 This automatically downloads Gradle and builds the project, including running the tests.
+Make sure that you are running MySQL and RabbitMQ on your host machine before building.
 
 The Gradle build using Maven repositories was provided by
 Michael Andrews (Github michaelajr and Twitter @MichaelAJr).

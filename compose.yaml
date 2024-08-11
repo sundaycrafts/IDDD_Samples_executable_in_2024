@@ -1,0 +1,29 @@
+services:
+  iddd-mysql:
+    build:
+      context: .
+      dockerfile: ./docker/mysql/Dockerfile
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+    volumes:
+      - iddd-mysql-data:/var/lib/mysql
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "--silent" ]
+      interval: 5s
+      timeout: 3s
+      retries: 2
+      start_period: 0s
+  iddd-rabbitmq:
+    image: "rabbitmq:3-management"
+    ports:
+      - "8080:15672"
+      - "5672:5672"
+    depends_on:
+      iddd-mysql:
+        condition: service_healthy
+
+volumes:
+  iddd-mysql-data:
+    name: iddd_samples_kotlin_mysql

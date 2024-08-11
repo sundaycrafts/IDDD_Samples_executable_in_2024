@@ -7,6 +7,8 @@
 -- =============================================================
 -- =============================================================
 
+DROP DATABASE IF EXISTS iddd_common_test;
+CREATE DATABASE iddd_common_test;
 USE iddd_common_test;
 
 CREATE TABLE `tbl_es_event_store` (
