@@ -25,7 +25,7 @@ import java.nio.channels.SocketChannel;
 
 public abstract class SlothWorker {
 
-	private static final int HUB_PORT = 55555;
+	private static final int HUB_PORT = 9000;
 
 	private int port;
 	private ServerSocketChannel socket;
