@@ -1,6 +1,5 @@
-
 allprojects {
-	apply plugin: 'java'
+    apply plugin: 'java'
 }
 
 subprojects {
@@ -12,83 +11,83 @@ subprojects {
     }
 
     dependencies {
-        implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.5.8'
-        testImplementation group: 'junit', name: 'junit', version: '4.13.2'
+        implementation 'org.slf4j:slf4j-api:1.5.8'
+        testImplementation 'junit:junit:4.13.2'
     }
 }
 
 project(':iddd_common') {
 
     dependencies {
-		implementation group: 'commons-logging', name: 'commons-logging', version: '1.1.2', transitive: true
-        implementation group: 'com.google.code.gson', name: 'gson', version: '2.1'
-        implementation group: 'com.rabbitmq', name: 'amqp-client', version: '3.0.4'
+        implementation 'commons-logging:commons-logging:1.1.2'
+        implementation 'com.google.code.gson:gson:2.1'
+        implementation 'com.rabbitmq:amqp-client:3.0.4'
 
-        implementation group: 'org.hibernate', name: 'hibernate', version: '3.2.7.ga'
-        implementation group: 'javax.transaction', name: 'jta', version: '1.1'
+        implementation 'org.hibernate:hibernate:3.2.7.ga'
+        implementation 'javax.transaction:jta:1.1'
 
-        implementation group: 'org.springframework', name: 'spring-core', version: '3.2.18.RELEASE'
-        implementation group: 'org.springframework', name: 'spring-beans', version: '3.2.18.RELEASE'
-        implementation group: 'org.springframework', name: 'spring-context', version: '3.2.18.RELEASE'
-        implementation group: 'org.springframework', name: 'spring-tx', version: '3.2.18.RELEASE'
-        implementation group: 'org.springframework', name: 'spring-orm', version: '3.2.18.RELEASE'
-        implementation group: 'org.iq80.leveldb', name: 'leveldb', version: '0.8'
-        implementation group: 'org.aspectj', name: 'aspectjweaver', version: '1.7.2'
-        implementation group: 'javassist', name: 'javassist', version: '3.8.0.GA'
+        implementation 'org.springframework:spring-core:3.2.18.RELEASE'
+        implementation 'org.springframework:spring-beans:3.2.18.RELEASE'
+        implementation 'org.springframework:spring-context:3.2.18.RELEASE'
+        implementation 'org.springframework:spring-tx:3.2.18.RELEASE'
+        implementation 'org.springframework:spring-orm:3.2.18.RELEASE'
+        implementation 'org.iq80.leveldb:leveldb:0.8'
+        implementation 'org.aspectj:aspectjweaver:1.7.2'
+        implementation 'javassist:javassist:3.8.0.GA'
 
-        testImplementation group: 'javax.persistence', name: 'persistence-api', version: '1.0.2'
-        testImplementation group: 'mysql', name: 'mysql-connector-java', version: '5.1.6'
-        testImplementation group: 'commons-dbcp', name: 'commons-dbcp', version: '1.4'
+        testImplementation 'javax.persistence:persistence-api:1.0.2'
+        testImplementation 'mysql:mysql-connector-java:5.1.6'
+        testImplementation 'commons-dbcp:commons-dbcp:1.4'
     }
 }
 
 project(':iddd_identityaccess') {
     dependencies {
         implementation project(':iddd_common')
-        implementation group: 'org.springframework', name: 'spring-core', version: '3.2.18.RELEASE'
-        implementation group: 'org.springframework', name: 'spring-beans', version: '3.2.18.RELEASE'
-        implementation group: 'org.springframework', name: 'spring-context', version: '3.2.18.RELEASE'
-        implementation group: 'org.springframework', name: 'spring-tx', version: '3.2.18.RELEASE'
-        implementation group: 'org.springframework', name: 'spring-orm', version: '3.2.18.RELEASE'
-        implementation group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.0-rc1'
-        implementation group: 'org.jboss.resteasy', name: 'resteasy-cache-core', version: '3.0.19.Final'
+        implementation 'org.springframework:spring-core:3.2.18.RELEASE'
+        implementation 'org.springframework:spring-beans:3.2.18.RELEASE'
+        implementation 'org.springframework:spring-context:3.2.18.RELEASE'
+        implementation 'org.springframework:spring-tx:3.2.18.RELEASE'
+        implementation 'org.springframework:spring-orm:3.2.18.RELEASE'
+        implementation 'javax.ws.rs:javax.ws.rs-api:2.0-rc1'
+        implementation 'org.jboss.resteasy:resteasy-cache-core:3.0.19.Final'
 
-        implementation group: 'org.hibernate', name: 'hibernate', version: '3.2.7.ga'
-        implementation group: 'javax.transaction', name: 'jta', version: '1.1'
+        implementation 'org.hibernate:hibernate:3.2.7.ga'
+        implementation 'javax.transaction:jta:1.1'
 
         testImplementation files(this.project(':iddd_common').sourceSets.test.output)
-        implementation group: 'org.aspectj', name: 'aspectjweaver', version: '1.7.2'
-        implementation group: 'com.google.code.gson', name: 'gson', version: '2.1'
-        testImplementation group: 'javax.persistence', name: 'persistence-api', version: '1.0.2'
-        testImplementation group: 'mysql', name: 'mysql-connector-java', version: '5.1.6'
-        testImplementation group: 'commons-dbcp', name: 'commons-dbcp', version: '1.4'
-        testImplementation group: 'javax.servlet', name: 'servlet-api', version: '2.5'
-        testImplementation group: 'org.jboss.resteasy', name: 'tjws', version: '3.0.19.Final'
+        implementation 'org.aspectj:aspectjweaver:1.7.2'
+        implementation 'com.google.code.gson:gson:2.1'
+        testImplementation 'javax.persistence:persistence-api:1.0.2'
+        testImplementation 'mysql:mysql-connector-java:5.1.6'
+        testImplementation 'commons-dbcp:commons-dbcp:1.4'
+        testImplementation 'javax.servlet:servlet-api:2.5'
+        testImplementation 'org.jboss.resteasy:tjws:3.0.19.Final'
     }
 }
 
 project(':iddd_collaboration') {
     dependencies {
         implementation project(':iddd_common')
-        implementation group: 'org.jboss.resteasy', name: 'resteasy-jaxrs', version: '3.0.19.Final'
+        implementation 'org.jboss.resteasy:resteasy-jaxrs:3.0.19.Final'
 
         testImplementation files(this.project(':iddd_common').sourceSets.test.output)
 
-        implementation group: 'org.springframework', name: 'spring-beans', version: '3.2.18.RELEASE'
-        implementation group: 'org.springframework', name: 'spring-context', version: '3.2.18.RELEASE'
+        implementation 'org.springframework:spring-beans:3.2.18.RELEASE'
+        implementation 'org.springframework:spring-context:3.2.18.RELEASE'
 
-        implementation group: 'com.google.code.gson', name: 'gson', version: '2.1'
-        testImplementation group: 'javax.persistence', name: 'persistence-api', version: '1.0.2'
-        testImplementation group: 'mysql', name: 'mysql-connector-java', version: '5.1.6'
-        testImplementation group: 'commons-dbcp', name: 'commons-dbcp', version: '1.4'
+        implementation 'com.google.code.gson:gson:2.1'
+        testImplementation 'javax.persistence:persistence-api:1.0.2'
+        testImplementation 'mysql:mysql-connector-java:5.1.6'
+        testImplementation 'commons-dbcp:commons-dbcp:1.4'
     }
 }
 
 project(':iddd_agilepm') {
     dependencies {
         implementation project(':iddd_common')
-        implementation group: 'org.iq80.leveldb', name: 'leveldb', version: '0.8'
-        implementation group: 'com.google.code.gson', name: 'gson', version: '2.1'
+        implementation 'org.iq80.leveldb:leveldb:0.8'
+        implementation 'com.google.code.gson:gson:2.1'
 
         testImplementation files(this.project(':iddd_common').sourceSets.test.output)
     }
