@@ -1,10 +1,15 @@
-> [!IMPORTANT]  
-> 
+> [!NOTE]
+>
 > This repository is forked from the [original](https://github.com/VaughnVernon/IDDD_Samples)
-> to allow for hands-on.
-> The changes are minimal, and the Java version remains the same as the original,
-> so some setup is still required, but the method is described in this README
-> and should not be difficult for developers with Java development experience.
+> with Java 8, which a relatively modern version in 2024,
+> and docker compose task definition to allow for hands-on.
+> 
+> Now you can interact with the code. Actually make assertions,
+> step-by-step execution with IDEs to understand how it works.
+> 
+> Because the original code was written over a decade ago,
+> so most of the code can be drastically refactored but I intentionally
+> leave it as your opportunity.
 
 These are the sample Bounded Contexts from the book
 "Implementing Domain-Driven Design" by Vaughn Vernon:
@@ -67,16 +72,22 @@ Usage
 Requires
 --------
 
-- Java 7 (8+ does not work)
+- Java 8
 - MySQL Client + Server
 - RabbitMQ
 
 Setup JDK
 ---------
 
-Download and install Java SE Development Kit from [Oracle archives page](https://www.oracle.com/java/technologies/javase/javase7-archive-downloads.html).
+Download and install Java 8 from arbitrary provider.
 
-Make sure `1.7.*` is available on your machine.
+> [!NOTE]
+>
+> You can also get a support of IDEs thanks to relatively modern Java version compared with the original repository.
+>
+> See [IDEA official doc](https://www.jetbrains.com/help/idea/sdk.html#supported-sdks) to change project Java SDK.
+
+Make sure `1.8.*` is available on your machine.
 
 ```shell
 # for macOS example
@@ -103,6 +114,7 @@ run `docker compose up` and execute `setup_db.sh`
 to create required databases to the MySQL Server.
 
 `docker compose up` will start a:
+
 - MySQL Server container
 - RabbitMQ Server container
 - RabbitMQ Management container
@@ -127,7 +139,6 @@ Make sure that you are running MySQL and RabbitMQ on your host machine before bu
 The Gradle build using Maven repositories was provided by
 Michael Andrews (Github michaelajr and Twitter @MichaelAJr).
 Thanks much!
-
 
 I hope you benefit from the samples.
 
