@@ -126,6 +126,8 @@ public class LevelDBReleaseRepositoryTest extends TestCase {
         releaseRepository.removeAll(Arrays.asList(new Release[] { release1, release3 }));
         LevelDBUnitOfWork.current().commit();
 
+        Thread.sleep(100); // wait a while to ensure the propagation of the commit effect
+
         savedReleases = releaseRepository.allProductReleases(tenantId, productId);
         assertFalse(savedReleases.isEmpty());
         assertEquals(1, savedReleases.size());
